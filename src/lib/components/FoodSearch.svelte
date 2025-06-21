@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import type { Food } from '../types.js';
-	import { loadFoodData, searchFoods } from '../foodData.js';
+	import { onMount } from "svelte";
+	import type { Food } from "../types.js";
+	import { loadFoodData, searchFoods } from "../foodData.js";
 
-	let searchQuery = '';
+	let searchQuery = "";
 	let foods: Food[] = [];
 	let searchResults: Food[] = [];
 	let loading = true;
@@ -12,7 +12,7 @@
 		try {
 			foods = await loadFoodData();
 		} catch (error) {
-			console.error('食品データの読み込みに失敗しました:', error);
+			console.error("食品データの読み込みに失敗しました:", error);
 		} finally {
 			loading = false;
 		}
@@ -27,7 +27,7 @@
 
 <div class="food-search">
 	<h1>食品栄養成分検索（食品100gあたり）</h1>
-	
+
 	{#if loading}
 		<p>データを読み込み中...</p>
 	{:else}
@@ -46,10 +46,10 @@
 				<div class="results-table">
 					<div class="table-header">
 						<div class="col name">食品名</div>
-						<div class="col energy">エネルギー<br/>(kcal)</div>
-						<div class="col protein">タンパク質<br/>(g)</div>
-						<div class="col fat">脂質<br/>(g)</div>
-						<div class="col carb">炭水化物<br/>(g)</div>
+						<div class="col energy">エネルギー<br />(kcal)</div>
+						<div class="col protein">タンパク質<br />(g)</div>
+						<div class="col fat">脂質<br />(g)</div>
+						<div class="col carb">炭水化物<br />(g)</div>
 					</div>
 					{#each searchResults as food}
 						<div class="table-row">
@@ -66,7 +66,7 @@
 			<p>検索結果が見つかりませんでした。</p>
 		{/if}
 	{/if}
-	
+
 	<footer class="data-source">
 		<p>※ データの出典：日本食品標準成分表（八訂）増補2023年</p>
 	</footer>
@@ -150,12 +150,12 @@
 		.food-search {
 			padding: 3rem 2rem;
 		}
-		
+
 		h1 {
 			font-size: 2.5rem;
 			margin-bottom: 3rem;
 		}
-		
+
 		.search-field {
 			font-size: 1.2rem;
 			padding: 1.2rem;
@@ -167,16 +167,16 @@
 		.food-search {
 			padding: 2rem 1.5rem;
 		}
-		
+
 		h1 {
 			font-size: 2rem;
 		}
-		
+
 		.table-header,
 		.table-row {
 			grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
 		}
-		
+
 		.col {
 			padding: 0.6rem;
 			font-size: 0.9rem;
@@ -188,37 +188,37 @@
 		.food-search {
 			padding: 1.5rem 1rem;
 		}
-		
+
 		h1 {
 			font-size: 1.8rem;
 			margin-bottom: 1.5rem;
 		}
-		
+
 		.search-field {
 			font-size: 1rem;
 			padding: 0.9rem;
 		}
-		
+
 		.table-header,
 		.table-row {
 			grid-template-columns: 1fr;
 			gap: 0;
 			border: none;
 		}
-		
+
 		.table-header {
 			display: none;
 		}
-		
+
 		.table-row {
 			background-color: white;
 			border: 1px solid #ddd;
 			border-radius: 8px;
 			margin-bottom: 1rem;
 			padding: 1rem;
-			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		}
-		
+
 		.col {
 			display: flex;
 			justify-content: space-between;
@@ -227,11 +227,11 @@
 			padding: 0.5rem 0;
 			border-bottom: 1px solid #eee;
 		}
-		
+
 		.col:last-child {
 			border-bottom: none;
 		}
-		
+
 		.col.name {
 			font-weight: bold;
 			font-size: 1.1rem;
@@ -240,40 +240,40 @@
 			border-bottom: 2px solid #007bff;
 			justify-content: flex-start;
 		}
-		
+
 		.col.energy::before {
-			content: 'エネルギー: ';
+			content: "エネルギー: ";
 			font-weight: bold;
 			color: #666;
 		}
-		
+
 		.col.protein::before {
-			content: 'タンパク質: ';
+			content: "タンパク質: ";
 			font-weight: bold;
 			color: #666;
 		}
-		
+
 		.col.fat::before {
-			content: '脂質: ';
+			content: "脂質: 　　";
 			font-weight: bold;
 			color: #666;
 		}
-		
+
 		.col.carb::before {
-			content: '炭水化物: ';
+			content: "炭水化物: 　";
 			font-weight: bold;
 			color: #666;
 		}
-		
+
 		.col.energy::after {
-			content: ' kcal';
+			content: " kcal";
 			color: #666;
 		}
-		
+
 		.col.protein::after,
 		.col.fat::after,
 		.col.carb::after {
-			content: ' g';
+			content: " g";
 			color: #666;
 		}
 	}
@@ -283,12 +283,12 @@
 		.food-search {
 			padding: 1rem 0.5rem;
 		}
-		
+
 		h1 {
 			font-size: 1.5rem;
 			margin-bottom: 1rem;
 		}
-		
+
 		.search-field {
 			font-size: 0.9rem;
 			padding: 0.8rem;
