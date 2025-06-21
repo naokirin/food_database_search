@@ -66,6 +66,10 @@
 			<p>検索結果が見つかりませんでした。</p>
 		{/if}
 	{/if}
+	
+	<footer class="data-source">
+		<p>※ データの出典：日本食品標準成分表（八訂）増補2023年</p>
+	</footer>
 </div>
 
 <style>
@@ -157,5 +161,18 @@
 			content: attr(data-label) ': ';
 			font-weight: bold;
 		}
+	}
+
+	.data-source {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 1px solid #eee;
+		text-align: center;
+	}
+
+	.data-source p {
+		color: #666;
+		font-size: 0.9rem;
+		margin: 0;
 	}
 </style>
