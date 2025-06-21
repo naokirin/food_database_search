@@ -145,21 +145,176 @@
 		text-align: left;
 	}
 
+	/* デスクトップ（960px以上） */
+	@media (min-width: 961px) {
+		.food-search {
+			padding: 3rem 2rem;
+		}
+		
+		h1 {
+			font-size: 2.5rem;
+			margin-bottom: 3rem;
+		}
+		
+		.search-field {
+			font-size: 1.2rem;
+			padding: 1.2rem;
+		}
+	}
+
+	/* タブレット（960px以下） */
+	@media (max-width: 960px) {
+		.food-search {
+			padding: 2rem 1.5rem;
+		}
+		
+		h1 {
+			font-size: 2rem;
+		}
+		
+		.table-header,
+		.table-row {
+			grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+		}
+		
+		.col {
+			padding: 0.6rem;
+			font-size: 0.9rem;
+		}
+	}
+
+	/* タブレット小（768px以下） */
 	@media (max-width: 768px) {
+		.food-search {
+			padding: 1.5rem 1rem;
+		}
+		
+		h1 {
+			font-size: 1.8rem;
+			margin-bottom: 1.5rem;
+		}
+		
+		.search-field {
+			font-size: 1rem;
+			padding: 0.9rem;
+		}
+		
+		.table-header,
+		.table-row {
+			grid-template-columns: 2fr 1fr 1fr;
+			gap: 1px;
+		}
+		
+		.col.protein,
+		.col.fat {
+			display: none;
+		}
+		
+		.table-header .col.protein,
+		.table-header .col.fat,
+		.table-row .col.protein,
+		.table-row .col.fat {
+			display: none;
+		}
+	}
+
+	/* モバイル（500px以下） */
+	@media (max-width: 500px) {
+		.food-search {
+			padding: 1rem 0.5rem;
+		}
+		
+		h1 {
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+		}
+		
+		.search-field {
+			font-size: 0.9rem;
+			padding: 0.8rem;
+		}
+		
 		.table-header,
 		.table-row {
 			grid-template-columns: 1fr;
 			gap: 0;
+			border: none;
 		}
-
+		
+		.table-header {
+			display: none;
+		}
+		
+		.table-row {
+			background-color: white;
+			border: 1px solid #ddd;
+			border-radius: 8px;
+			margin-bottom: 1rem;
+			padding: 1rem;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		}
+		
 		.col {
-			border-bottom: 1px solid #ddd;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			text-align: left;
+			padding: 0.5rem 0;
+			border-bottom: 1px solid #eee;
 		}
-
-		.table-header .col::before,
-		.table-row .col::before {
-			content: attr(data-label) ': ';
+		
+		.col:last-child {
+			border-bottom: none;
+		}
+		
+		.col.name {
 			font-weight: bold;
+			font-size: 1.1rem;
+			color: #333;
+			margin-bottom: 0.5rem;
+			border-bottom: 2px solid #007bff;
+		}
+		
+		.col.energy::before {
+			content: 'エネルギー: ';
+			font-weight: bold;
+			color: #666;
+		}
+		
+		.col.protein::before {
+			content: 'タンパク質: ';
+			font-weight: bold;
+			color: #666;
+		}
+		
+		.col.fat::before {
+			content: '脂質: ';
+			font-weight: bold;
+			color: #666;
+		}
+		
+		.col.carb::before {
+			content: '炭水化物: ';
+			font-weight: bold;
+			color: #666;
+		}
+		
+		.col.energy::after {
+			content: ' kcal';
+			color: #666;
+		}
+		
+		.col.protein::after,
+		.col.fat::after,
+		.col.carb::after {
+			content: ' g';
+			color: #666;
+		}
+		
+		/* モバイルでは全ての栄養素を表示 */
+		.col.protein,
+		.col.fat {
+			display: flex;
 		}
 	}
 
