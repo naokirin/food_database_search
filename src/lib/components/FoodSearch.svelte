@@ -26,7 +26,7 @@
 </script>
 
 <div class="food-search">
-	<h1>食品栄養成分検索</h1>
+	<h1>食品栄養成分検索（食品100gあたり）</h1>
 	
 	{#if loading}
 		<p>データを読み込み中...</p>
