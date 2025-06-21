@@ -183,7 +183,7 @@
 		}
 	}
 
-	/* タブレット小（768px以下） */
+	/* タブレット小・モバイル（768px以下） */
 	@media (max-width: 768px) {
 		.food-search {
 			padding: 1.5rem 1rem;
@@ -197,41 +197,6 @@
 		.search-field {
 			font-size: 1rem;
 			padding: 0.9rem;
-		}
-		
-		.table-header,
-		.table-row {
-			grid-template-columns: 2fr 1fr 1fr;
-			gap: 1px;
-		}
-		
-		.col.protein,
-		.col.fat {
-			display: none;
-		}
-		
-		.table-header .col.protein,
-		.table-header .col.fat,
-		.table-row .col.protein,
-		.table-row .col.fat {
-			display: none;
-		}
-	}
-
-	/* モバイル（500px以下） */
-	@media (max-width: 500px) {
-		.food-search {
-			padding: 1rem 0.5rem;
-		}
-		
-		h1 {
-			font-size: 1.5rem;
-			margin-bottom: 1rem;
-		}
-		
-		.search-field {
-			font-size: 0.9rem;
-			padding: 0.8rem;
 		}
 		
 		.table-header,
@@ -273,6 +238,7 @@
 			color: #333;
 			margin-bottom: 0.5rem;
 			border-bottom: 2px solid #007bff;
+			justify-content: flex-start;
 		}
 		
 		.col.energy::before {
@@ -310,11 +276,22 @@
 			content: ' g';
 			color: #666;
 		}
+	}
+
+	/* モバイル（500px以下）- より小さなスクリーンに最適化 */
+	@media (max-width: 500px) {
+		.food-search {
+			padding: 1rem 0.5rem;
+		}
 		
-		/* モバイルでは全ての栄養素を表示 */
-		.col.protein,
-		.col.fat {
-			display: flex;
+		h1 {
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+		}
+		
+		.search-field {
+			font-size: 0.9rem;
+			padding: 0.8rem;
 		}
 	}
 
