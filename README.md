@@ -1,38 +1,95 @@
-# sv
+# 食品栄養成分検索
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+食品の栄養成分を簡単に検索できるWebアプリケーションです。日本食品標準成分表（八訂）増補2023年のデータを使用して、食品100gあたりの栄養成分を表示します。
 
-## Creating a project
+## 機能
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **食品検索**: 食品名を入力して栄養成分を検索
+- **栄養成分表示**: エネルギー、タンパク質、脂質、炭水化物を表示
+- **レスポンシブデザイン**: デスクトップ、タブレット、モバイルに対応
+- **リアルタイム検索**: 入力に応じて即座に検索結果を表示
 
+## 技術スタック
+
+- **フロントエンド**: Svelte 5 + SvelteKit
+- **ビルドツール**: Vite
+- **言語**: TypeScript
+- **データ**: CSV形式の食品栄養成分データ
+
+## 実行方法
+
+### 前提条件
+
+- Node.js (v18以上)
+- npm
+
+### インストール
+
+1. リポジトリをクローン
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+git clone https://github.com/naokirin/food_database_search.git
+cd food_database_search
 ```
 
-## Developing
+2. 依存関係をインストール
+```bash
+npm install
+```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### 開発サーバーの起動
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+開発サーバーが起動したら、ブラウザで `http://localhost:5173` にアクセスしてください。
 
-To create a production version of your app:
+### ビルド
+
+本番用ビルドを作成する場合：
 
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+### プレビュー
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+ビルドされたアプリケーションをプレビューする場合：
+
+```bash
+npm run preview
+```
+
+## プロジェクト構造
+
+```
+syokusagashi/
+├── src/
+│   ├── lib/
+│   │   ├── components/
+│   │   │   └── FoodSearch.svelte    # メインの検索コンポーネント
+│   │   ├── foodData.ts              # 食品データの読み込み・検索ロジック
+│   │   └── types.ts                 # TypeScript型定義
+│   └── routes/
+│       └── +page.svelte             # メインページ
+├── static/
+│   └── food_database.csv            # 食品栄養成分データ
+└── package.json
+```
+
+## データソース
+
+このアプリケーションは以下のデータを使用しています：
+
+- **日本食品標準成分表（八訂）増補2023年**
+- 文部科学省が提供する公的な食品成分データベース
+
+## ライセンス
+
+このプロジェクトは [MIT License](LICENSE) の下で公開されています。
+
+```
+
+## 開発者
+
+- **作成者**: naokirin
